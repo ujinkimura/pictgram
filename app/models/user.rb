@@ -8,5 +8,10 @@ class User < ApplicationRecord
   validates :password, length: { in: 8..32 }
   validates :password, presence: true
   validates :password, format: { with: VAILD_PASSWORD_REGEX}
+ 
   has_secure_password
+
+  has_many :topics
+  has_many :favorites
+  
 end

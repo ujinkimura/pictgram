@@ -22,8 +22,8 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %> 
             <li>
-              <%= link_to "#" do %>
-                <%= image_tag "heart.png" %>
+              <%= link_to favorites_index_path do %>
+                <%= image_tag 'heart.png' %>
               <% end %>
             </li>
             <li>
@@ -36,7 +36,7 @@
                 <%= image_tag "logout.png" %>
               <% end %>
             </li>
-          <% else %>
+          <% else %><!--ログインできていない場合-->
             <li>
               <%= link_to new_user_path do %>
                 <%= image_tag "register.png" %>
@@ -53,3 +53,10 @@
     </nav>
 
     <%= yield %>
+ <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+    </script>
+  </body>
+</html>

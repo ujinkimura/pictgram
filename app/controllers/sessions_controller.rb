@@ -23,6 +23,11 @@ render :new
   def log_in(user)
     session[:user_id] = user.id
   end
+  
+  def log_out
+    session.delete(:user_id) #セッションに保存されているuser_idを削除することでログアウトの実行
+    @current_user = nil #ユーザー情報を削除
+  end
 
   def email_params
     params.require(:session).permit(:email)
