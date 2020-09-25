@@ -12,8 +12,8 @@ h1, h2 {
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
-
+  background-color: rgba(0,0,0,0);
+  
   &:hover {
     color: #fff;
   }
@@ -21,8 +21,8 @@ h1, h2 {
 
 .top-hero-wrapper {
   width: 100vw;
-  height: 100vh;
-  background-image: url('bg-top.png');
+  height: 100vw;
+  background-image: url("bg-top.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -32,24 +32,23 @@ h1, h2 {
 
 .top-hero-container {
   padding-top: 220px;
-  h1 {
+  h1{
     font-size: 56px;
     margin-bottom: 20px;
   }
-
+  
   h2 {
     margin-bottom: 60px;
   }
 }
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 .form-control {
   height: 45px;
 }
 
 .users-new-wrapper {
   width: 100vw;
-  height: 100vh;
+  height: 100vw;
   background-image: image-url('bg-top.png');
   background-position: center center;
   background-repeat: no-repeat;
@@ -58,43 +57,46 @@ h1, h2 {
   background-color: #464646;
 
   .users-new-container {
-    padding-top: 220px;
+    padding-top: 110px;
+
 
     .form-group {
       margin-bottom: 20px;
+      text-transform: uppercase;
     }
   }
 }
+
 .alert {
   margin-bottom: 0px;
   position: fixed;
   width: 100%;
   z-index: 10000;
 }
+
 .navbar-transparent {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   background-color: rgba(0,0,0,0.5);
   a {
     color: #fff !important;
   }
-
   .navbar-brand {
-    padding: 0px;
+    padding: 0;
     margin-top: 15px;
   }
-
   img {
     height: 40px;
   }
 }
+
 .btn-black {
   color: #565656;
   border: 1px solid #565656;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
-
+  background-color: rgba(0,0,0,0);
+  
   &:hover {
     color: #565656;
   }
@@ -103,6 +105,7 @@ h1, h2 {
 .topic-new-wrapper {
   padding-top: 120px;
 }
+
 .topic-index-wrapper {
   padding-top: 70px;
   background-color: #fafafa;
@@ -134,5 +137,23 @@ h1, h2 {
       height: 30px;
       margin-left: 20px;
     }
+    
+    .heart-red {
+    -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+        hue-rotate(-50deg) saturate(400%) contrast(2);
+      filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg)
+        saturate(600%) contrast(0.8);
+    }
   }
+}
+
+.text-area {
+  font-size: 15px;
+}
+
+.comment-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 5px;
+  border-bottom: solid 0.5px;
 }

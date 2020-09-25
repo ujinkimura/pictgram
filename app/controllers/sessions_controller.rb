@@ -36,4 +36,8 @@ render :new
   def password_params
     params.require(:session).permit(:password)
   end
+  
+  def session_params
+   params.require(:session).permit(:email, :password)
+  end
 end
