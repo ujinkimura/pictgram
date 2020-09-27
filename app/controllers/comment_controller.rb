@@ -1,36 +1,22 @@
-class CommentController < ApplicationController
+class CommentsController < ApplicationController
+    
   def new
-    if params[:topic_id]
-      @topic = Topic.find_by(id: params[:topic_id]) 
-      @comment = Comment.new
-      @comments = Comment.where(topic_id: params[:topic_id])
-    else
-      @topic = Topic.find_by(id: params[:comment][:topic_id]) 
-      @comment = Comment.new
-      @comments = Comment.where(topic_id: params[:comment][:topic_id])
-    end
+    @comment = Comment.new
   end
-  
+
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
+    @comment = current_user.comments.new(comment_params)
     if @comment.save
-      redirect_to comments_new_path(comment: comment_params), success: "コメントを送信しました"
+      redirect_to topics_path, success: '投稿に成功しました'
     else
-      @topic = Topic.find_by(id: params[:comment][:topic_id])
-      @comments = Comment.where(topic_id: params[:comment][:topic_id])
-      flash.now[:danger] = "コメントを送れません"
+      flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
   end
-    
-  def destroy
-    comment =Comment.find_by(id: params[:comment_id])
-    comment.destroy
-    redirect_to topics_path, info: "コメントを削除しました"
-  end
-  
+
+  private
   def comment_params
-    params.require(:comment).permit(:sentence, :topic_id)
+    params.require(:comment).permit(:comment,:topic_id)
   end
+
 end
